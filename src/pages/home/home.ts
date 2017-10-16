@@ -11,4 +11,16 @@ export class HomePage {
 
   }
 
+  scannedTapped(event) {
+    //this.navCtrl.setRoot(ScanPage)
+  }
+
+  addTapped(event) {
+    //this.navCtrl.setRoot(AddPage)
+  }
+
+  listTapped(event) {
+    //this.navCtrl.setRoot(ListPage)
+  }
+
 }
