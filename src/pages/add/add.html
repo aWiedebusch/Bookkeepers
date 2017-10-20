@@ -7,73 +7,48 @@
 <ion-content padding>
     <div class = "bookInfo">
         <h6> Book Info </h6>
-        <label class = "title">
-            <input type = "text" placeholder = "Title" />
-        </label>
+        <ion-item id="title">
+            <ion-input type="text" placeholder="Title"></ion-input>
+        </ion-item>
+
+        <ion-item id="genre">
+                <ion-input type="text" placeholder="Genre"></ion-input>
+        </ion-item>
+
+        <ion-item id="author">
+                <ion-input type="text" placeholder="Author"></ion-input>
+        </ion-item>
+
+        <ion-item id="price">
+                <ion-input type="text" placeholder="Price"></ion-input>
+        </ion-item>
+
+        <ion-item id="publisher">
+                <ion-input type="text" placeholder="Publisher"></ion-input>
+        </ion-item>
         
-        <label class = "genre">
-            <input type = "text" placeholder = "Genre" />
-        </label>
-
-        <label class = "author">
-            <input type = "text" placeholder = "Author" />
-        </label>
-
-        <label class = "price">
-            <input type = "text" placeholder = "Price" />
-        </label>
-
-        <label class = "publisher">
-            <input type = "text" placeholder = "Publisher" />
-        </label>
 
         <h6> Condition </h6>
+        <div class = "conditions">
             <label class = "conditionRadio">
-                <div class = "item-content">
-                    New/Like New
-                </div>
-                <input type = "radio" name = "likeNew" />
-                
-                <i class = "radio-icon ion-checkmark"></i>
-            </label>
-            
-            <label class = "conditionRadio">
-                <div class = "item-content">
-                        Good
-                </div>
-                <input type = "radio" name = "good" />
-                
-                <i class = "radio-icon ion-checkmark"></i>
-            </label>
-            
-            <label class = "conditionRadio">
-                <div class = "item-content">
-                    Fair
-                </div>
-                <input type = "radio" name = "group1" />
-                
-                <i class = "radio-icon ion-checkmark"></i>
-            </label>
-            
-            <label class = "conditionRadio">
-                <div class = "item-content">
-                    Poor
-                </div>
-                <input type = "radio" name = "group1" />
-                
-                <i class = "radio-icon ion-checkmark"></i>
-            </label>
-            </div>
-
-        <h6> Additional Information </h6>
-        <label class = "notes">
-            <input type = "text" placeholder = "Additional Notes" />
-        </label>
+                    <input type = "radio" name = "condition" value = "new"/>
+                    New/Like New <br><br>
+                    <input type = "radio" name = "condition" value = "good"/>
+                    Good<br><br>
+                    <input type = "radio" name = "condition" value = "fair"/>
+                    Fair<br><br>
+                    <input type = "radio" name = "condition" value = "poor"/>
+                    Poor<br>
+            </label><br>
+        </div><br>
     
-    <div>
-        <button class = "addButton" onclick="alert('Hi Austin')">
-                Add Book
-        </button>
+        <ion-item id="addInfo">
+                <ion-input type="text" placeholder="Additional Information"></ion-input>
+        </ion-item>
+        
+        <div>
+            <button ion-button> Add Book </button>
+        </div>
     </div>
 
 </ion-content>
