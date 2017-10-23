@@ -13,27 +13,78 @@ export class InventoryPage {
   all_books: any
 
   constructor(public navCtrl: NavController, private storage: Storage) {
-      this.all_books = []
+    this.all_books = []
   }
 
 
   ngOnInit() {
-    this.all_books = this.getBooks();
+    this.testStore()
+    this.getBooks().then((val) => this.all_books = val)
+    console.log(this.all_books)
+    
+  }
+
+  testStore() {
+    this.storage.set('0', 
+    [{
+      title: "Cats",
+      author: "Demz",
+      genre: "be Catz",
+      publisher: "Penguins",
+      price: "19.99",
+      condition: "Good",
+      additional_info: "none"
+    },
+    {
+      title: "Dogs",
+      author: "Demz",
+      genre: "be Dogz",
+      publisher: "Penguins",
+      price: "0.99",
+      condition: "Good",
+      additional_info: "none"
+    }
+    ])
+    this.storage.set('1', 
+    [{
+      title: "boop",
+      author: "Demz",
+      genre: "be Catz",
+      publisher: "Penguins",
+      price: "19.99",
+      condition: "Good",
+      additional_info: "none"
+    },
+    {
+      title: "beep",
+      author: "Demz",
+      genre: "be Dogz",
+      publisher: "Penguins",
+      price: "0.99",
+      condition: "Good",
+      additional_info: "none"
+    }
+    ])
   }
 
   async getBooks() {
-    var index = await this.storage.keys()
+    var index
+    Promise.all(index = await this.storage.keys())
+    //console.log("Keys " + index)
+    //this.storage.get('0').then((val) => console.log(val))
     var books = []
 
-    for(let book of index) {
-      books.push(this.storage.get(book))
+    for (let book of index) {
+      //console.log("Pass " + book)
+      //books.push(this.storage.get(book))
+      this.storage.get(book).then((val) => books.push(val))
     }
+
+    console.log(books)
     return books
   }
 
   clickBook(isbn) {
-    this.navCtrl.push(BookPage,this.storage.get(isbn))
+    this.navCtrl.push(BookPage, this.storage.get(isbn))
   }
-
-
 }
