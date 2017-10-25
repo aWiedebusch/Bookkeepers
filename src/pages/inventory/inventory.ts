@@ -11,22 +11,23 @@ import { BookPage } from '../book/book';
 export class InventoryPage {
 
   all_books: any
+  showLevel1: any
 
   constructor(public navCtrl: NavController, private storage: Storage) {
     this.all_books = []
+    this.showLevel1 = null;
   }
 
 
   ngOnInit() {
-    this.testStore()
+    //this.testStore()
     this.getBooks().then((val) => this.all_books = val)
-    console.log(this.all_books)
-    
   }
 
   testStore() {
-    this.storage.set('0', 
+    this.storage.set('abc', 
     [{
+      isbn: "abc",
       title: "Cats",
       author: "Demz",
       genre: "be Catz",
@@ -36,6 +37,7 @@ export class InventoryPage {
       additional_info: "none"
     },
     {
+      isbn: "abc",
       title: "Dogs",
       author: "Demz",
       genre: "be Dogz",
@@ -47,6 +49,7 @@ export class InventoryPage {
     ])
     this.storage.set('1', 
     [{
+      isbn: "abc",
       title: "boop",
       author: "Demz",
       genre: "be Catz",
@@ -56,6 +59,7 @@ export class InventoryPage {
       additional_info: "none"
     },
     {
+      isbn: "abc",
       title: "beep",
       author: "Demz",
       genre: "be Dogz",
@@ -70,21 +74,29 @@ export class InventoryPage {
   async getBooks() {
     var index
     Promise.all(index = await this.storage.keys())
-    //console.log("Keys " + index)
-    //this.storage.get('0').then((val) => console.log(val))
     var books = []
 
     for (let book of index) {
-      //console.log("Pass " + book)
-      //books.push(this.storage.get(book))
       this.storage.get(book).then((val) => books.push(val))
     }
-
-    console.log(books)
+    //console.log(books)
     return books
   }
 
-  clickBook(isbn) {
-    this.navCtrl.push(BookPage, this.storage.get(isbn))
+  clickBook(book_obj) {
+    this.navCtrl.push(BookPage, book_obj)
   }
+
+  toggleLevel1(idx) {
+    if (this.isLevel1Shown(idx)) {
+      this.showLevel1 = null;
+    } else {
+      this.showLevel1 = idx;
+    }
+  };
+
+  isLevel1Shown(idx) {
+    return this.showLevel1 === idx;
+  };
+  
 }
