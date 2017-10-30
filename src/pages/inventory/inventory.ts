@@ -38,9 +38,9 @@ export class InventoryPage {
     },
     {
       isbn: "abc",
-      title: "Dogs",
+      title: "Cats",
       author: "Demz",
-      genre: "be Dogz",
+      genre: "be Catz",
       publisher: "Penguins",
       price: "0.99",
       condition: "Good",
@@ -49,20 +49,20 @@ export class InventoryPage {
     ])
     this.storage.set('1', 
     [{
-      isbn: "abc",
+      isbn: "1",
       title: "boop",
       author: "Demz",
-      genre: "be Catz",
+      genre: "be Boopz",
       publisher: "Penguins",
       price: "19.99",
       condition: "Good",
       additional_info: "none"
     },
     {
-      isbn: "abc",
-      title: "beep",
+      isbn: "1",
+      title: "boop",
       author: "Demz",
-      genre: "be Dogz",
+      genre: "be Boopz",
       publisher: "Penguins",
       price: "0.99",
       condition: "Good",
