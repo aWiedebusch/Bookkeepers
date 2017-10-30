@@ -10,6 +10,7 @@ import { BookPage } from '../book/book';
 })
 export class InventoryPage {
 
+  //declare variables
   all_books: any
   showLevel1: any
 
@@ -18,12 +19,16 @@ export class InventoryPage {
     this.showLevel1 = null;
   }
 
-
+//Things to run when page is loaded
   ngOnInit() {
     //this.testStore()
+
+    //gets the books out of the promise wrapper
     this.getBooks().then((val) => this.all_books = val)
   }
 
+  //run this once in ngOnInit to set test book values
+  //in the app
   testStore() {
     this.storage.set('abc', 
     [{
@@ -71,11 +76,15 @@ export class InventoryPage {
     ])
   }
 
+  //async allows for the await command for promises
   async getBooks() {
     var index
+
+    //waits till all keys are gotten before continuing
     Promise.all(index = await this.storage.keys())
     var books = []
 
+    //gets each book object
     for (let book of index) {
       this.storage.get(book).then((val) => books.push(val))
     }
@@ -83,10 +92,14 @@ export class InventoryPage {
     return books
   }
 
+  //navigates to a book page, sending the entire book object in 
+  //navParams
   clickBook(book_obj) {
     this.navCtrl.push(BookPage, book_obj)
   }
 
+
+  //Accordion stuff, don't worry about this
   toggleLevel1(idx) {
     if (this.isLevel1Shown(idx)) {
       this.showLevel1 = null;
