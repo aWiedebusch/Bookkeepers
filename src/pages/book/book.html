@@ -17,7 +17,7 @@
             
                 <ion-item (click)="editBook('title')">
                     <ion-card-content class="title-text item-text-wrap">
-                        Title text
+                        {{book.title}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
@@ -29,7 +29,7 @@
             
                 <ion-item (click)="editBook('genre')">
                     <ion-card-content class="genre-text item-text-wrap">
-                        Genre text
+                        {{book.genre}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
@@ -41,7 +41,7 @@
             
                 <ion-item (click)="editBook('author')">
                     <ion-card-content class="author-text item-text-wrap">
-                        <p id="author"></p>
+                        {{book.author}}
                     </ion-card-content>
                 </ion-item>
                 
@@ -54,7 +54,7 @@
             
                 <ion-item (click)="editBook('price')">
                     <ion-card-content class="price-text item-text-wrap">
-                        Price text
+                        {{book.price}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
@@ -66,7 +66,7 @@
             
                 <ion-item (click)="editBook('publisher')">
                     <ion-card-content class="publisher-text item-text-wrap">
-                        Publisher text
+                        {{book.publisher}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
@@ -78,7 +78,7 @@
             
                 <ion-item (click)="editBook('condition')">
                     <ion-card-content class="condition-text item-text-wrap">
-                        Condition text
+                        {{book.conditions}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
@@ -90,12 +90,10 @@
                 
                 <ion-item (click)="editBook('desc')">
                     <ion-card-content class="description-text item-text-wrap">
-                        Description text
+                        {{book.additional_info}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
-
-            <script>document.getElementById("author").innerHTML = getElem('author')</script>
 
             <button ion-button block type="edit-book-button">Edit Book</button>
         </div>
