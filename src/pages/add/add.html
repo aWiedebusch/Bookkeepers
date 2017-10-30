@@ -7,51 +7,52 @@
 <ion-content padding>
     <div class = "bookInfo">
         <h6> Book Info </h6>
-        <ion-item id="bookInfo">
-            <ion-input type="text" placeholder="ISBN number"></ion-input>
+        <ion-item id="isbn">
+            <ion-input type="text" [(ngModel)]="info.isbn" placeholder="ISBN number"></ion-input>
         </ion-item>
 
-        <ion-item id="bookInfo">
-            <ion-input type="text" placeholder="Title"></ion-input>
+        <ion-item id="title">
+            <ion-input type="text" [(ngModel)]="info.title" placeholder="Title"></ion-input>
         </ion-item>
 
-        <ion-item id="bookInfo">
-            <ion-input type="text" placeholder="Genre"></ion-input>
+        <ion-item id="genre">
+            <ion-input type="text" [(ngModel)]="info.genre" placeholder="Genre"></ion-input>
         </ion-item>
 
         <ion-item id="author">
-            <ion-input type="text" placeholder="Author"></ion-input>
+            <ion-input type="text" [(ngModel)]="info.author" placeholder="Author"></ion-input>
         </ion-item>
 
         <ion-item id="price">
-            <ion-input type="text" placeholder="Price"></ion-input>
+            <ion-input type="text" [(ngModel)]="info.price" placeholder="Price"></ion-input>
         </ion-item>
 
         <ion-item id="publisher">
-            <ion-input type="text" placeholder="Publisher"></ion-input>
+            <ion-input type="text" [(ngModel)]="info.publisher" placeholder="Publisher"></ion-input>
         </ion-item>
         
 
         <h6> Condition </h6>
         <div class = "conditions">
             <label class = "conditionRadio">
-                    <input type = "radio" name = "condition" value = "new"/>
+                    <input type = "radio" name = "condition" id = "condition" value = "new"/>
                     New/Like New <br><br>
-                    <input type = "radio" name = "condition" value = "good"/>
+                    <input type = "radio" name = "condition" id = "condition" value = "good"/>
                     Good<br><br>
-                    <input type = "radio" name = "condition" value = "fair"/>
+                    <input type = "radio" name = "condition" id = "condition" value = "fair"/>
                     Fair<br><br>
-                    <input type = "radio" name = "condition" value = "poor"/>
+                    <input type = "radio" name = "condition" id = "condition" value = "poor"/>
                     Poor<br>
             </label><br>
         </div><br>
     
         <ion-item id="addInfo">
-                <ion-input type="text" placeholder="Additional Information"></ion-input>
+                <ion-textarea [(ngModel)]="info.additional_info" placeholder="Additional Information"></ion-textarea>
         </ion-item>
         
         <div>
-            <button ion-button> Add Book </button>
+            <button ion-button (click)="add()"> Add Book </button>
+            <!-- <button ion-button (click)="showNewBookInfo()"> Display </button> -->
         </div>
 
     </div>
