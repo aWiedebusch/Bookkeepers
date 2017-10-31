@@ -14,16 +14,8 @@ export class BookPage {
     this.book = navParams.get('Book');
   }
 
-  setBook() {
-    
-  }
-
   editBook(element) {
     
-  }
-
-  ngOnInit() {
-    this.setBook();
   }
 }
 
