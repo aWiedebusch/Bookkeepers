@@ -5,4 +5,26 @@
 </ion-header>
 
 <ion-content padding>
+    <ion-list>
+        <ion-item *ngFor="let isbn of all_books; let i = index" (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
+            <h4>
+                <div text-center>
+                    Title: {{isbn[0].title}}
+                    <div float-right>
+                        {{isbn.length}}
+                    </div>
+                    <br> Author: {{isbn[0].author}}
+                    <br> Genre: {{isbn[0].genre}}
+                    <br> Publisher: {{isbn[0].publisher}}
+                </div>
+            </h4>
+            <ion-list *ngIf="isLevel1Shown('idx'+i)">
+                <ion-item (click)="clickBook(isbn)" *ngFor="let book of isbn">
+                    Cost: {{book.price}} <br>
+                    Condition: {{book.condition}} <br>
+                    Description: {{book.additional_info}}
+                </ion-item>
+            </ion-list>
+        </ion-item>
+    </ion-list>
 </ion-content>
