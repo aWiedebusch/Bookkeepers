@@ -19,7 +19,7 @@ export class BookPage {
   }
 
   editBook(element) {
-
+    
   }
 
   ngOnInit() {
