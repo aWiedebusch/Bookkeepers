@@ -37,6 +37,7 @@ export class AddPage {
       isbn: this.isbn,
       title: this.title,
       author: this.author,
+      genre: this.genre,
       price: this.price,
       publisher: this.publisher,
       condition: this.condition,

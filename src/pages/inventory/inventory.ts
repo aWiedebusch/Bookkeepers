@@ -21,6 +21,7 @@ export class InventoryPage {
 
 //Things to run when page is loaded
   ngOnInit() {
+    //this.storage.clear()
     //this.testStore()
 
     //gets the books out of the promise wrapper
