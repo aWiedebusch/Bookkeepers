@@ -23,10 +23,6 @@ export class AddPage {
 
   }
 
-  ngOnInit() {
-
-  }
-
   add(){
     alert("ISBN is " + this.isbn + 
                 "\nTitle is " + this.title +
@@ -36,5 +32,16 @@ export class AddPage {
                 "\nPublisher is " + this.publisher +
                 "\nCondition is " + this.condition +
                 "\nAdditional Info: " + this.additional_info);
+
+    this.storage.set(String(this.isbn), [{
+      isbn: this.isbn,
+      title: this.title,
+      author: this.author,
+      price: this.price,
+      publisher: this.publisher,
+      condition: this.condition,
+      additional_info: this.additional_info
+    }])
   }
+
 }
