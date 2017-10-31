@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { InventoryPage } from '../inventory/inventory';
 //import { ScanPage } from '../scan/scan';
 import { AddPage } from '../add/add';
+import { BookPage } from '../book/book';
 
 @Component({
   selector: 'page-home',
@@ -25,6 +26,10 @@ export class HomePage {
 
   listTapped(event) {
     this.navCtrl.setRoot(InventoryPage)
+  }
+
+  infoTapped(event) {
+    this.navCtrl.setRoot(BookPage)
   }
 
 }
