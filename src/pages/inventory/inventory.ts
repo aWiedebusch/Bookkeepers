@@ -95,6 +95,7 @@ export class InventoryPage {
   //navigates to a book page, sending the entire book object in 
   //navParams
   clickBook(book_obj) {
+    //console.log(book_obj)
     this.navCtrl.push(BookPage, { Book: book_obj })
   }
 

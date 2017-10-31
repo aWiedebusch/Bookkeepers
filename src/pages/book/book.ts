@@ -14,19 +14,19 @@ export class BookPage {
     this.book = navParams.get('Book');
   }
 
-  setBook() {
-    this.book.isbn = "abc";
-    this.book.title = "Cats";
-    this.book.author = "Demz";
-    this.book.genre = "be Catz";
-    this.book.publisher = "Penguins";
-    this.book.price = "19.99";
-    this.book.condition = "Good";
-    this.book.additional_info = "none";
-  }
+  // setBook() {
+  //   this.book.isbn = "abc";
+  //   this.book.title = "Cats";
+  //   this.book.author = "Demz";
+  //   this.book.genre = "be Catz";
+  //   this.book.publisher = "Penguins";
+  //   this.book.price = "19.99";
+  //   this.book.condition = "Good";
+  //   this.book.additional_info = "none";
+  // }
 
-  ngOnInit() {
-    this.setBook();
-  }
+  // ngOnInit() {
+  //   this.setBook();
+  // }
 }
 
