@@ -28,8 +28,4 @@ export class HomePage {
     this.navCtrl.setRoot(InventoryPage)
   }
 
-  infoTapped(event) {
-    this.navCtrl.setRoot(BookPage)
-  }
-
 }
