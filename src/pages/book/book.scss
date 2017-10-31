@@ -2,6 +2,9 @@ page-book {
     
 }
 
-book-info-page {
-    text-align: center;
+.book-info-page {
+    width: 90%;
+    height: 75%;
+
+    overflow: auto;
 }

@@ -5,9 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-    <body>
+    <body scrolling="yes">
         <div class="book-info-page">
-            
             <h3>Book Info</h3>
 
             <ion-card>
@@ -46,7 +45,7 @@
                 </ion-item>
                 
             </ion-card>
-
+                
             <ion-card>
                 <ion-card-header>
                     Price
@@ -78,7 +77,7 @@
             
                 <ion-item (click)="editBook('condition')">
                     <ion-card-content class="condition-text item-text-wrap">
-                        {{book.conditions}}
+                        {{book.condition}}
                     </ion-card-content>
                 </ion-item>
             </ion-card>
