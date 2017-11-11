@@ -13,6 +13,9 @@ import { InventoryPage } from '../pages/inventory/inventory';
 import { AddPage } from '../pages/add/add';
 import { SearchPage } from '../pages/search/search';
 
+import { ISBNPipe } from '../pages/inventory/pipe';
+import { DeepPipe } from '../pages/inventory/deep_pipe';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -26,7 +29,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BookPage,
     InventoryPage,
     AddPage,
-    SearchPage
+    SearchPage,
+    ISBNPipe,
+    DeepPipe
   ],
   imports: [
     BrowserModule,
