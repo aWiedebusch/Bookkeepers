@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BookPage } from '../pages/book/book';
 import { InventoryPage } from '../pages/inventory/inventory';
 import { AddPage } from '../pages/add/add';
+import { SearchPage } from '../pages/search/search';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     BookPage,
     InventoryPage,
-    AddPage
+    AddPage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     BookPage,
     InventoryPage,
-    AddPage
+    AddPage,
+    SearchPage
   ],
   providers: [
     StatusBar,
