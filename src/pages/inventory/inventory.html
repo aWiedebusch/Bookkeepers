@@ -5,8 +5,40 @@
 </ion-header>
 
 <ion-content padding>
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchISBN" class="form-control" placeholder="Search By ISBN" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchAuthor" class="form-control" placeholder="Search By Author" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchTitle" class="form-control" placeholder="Search By Title" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchGenre" class="form-control" placeholder="Search By Genre" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-6">
+            <input type="text" [(ngModel)]="searchPublisher" class="form-control" placeholder="Search By Publisher" />
+        </div>
+    </div>
+
     <ion-list>
-        <ion-item *ngFor="let isbn of all_books; let i = index" (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
+        <ion-item *ngFor="let isbn of 
+        (all_books 
+        | filter: searchISBN) 
+        | more_filter: searchAuthor:'author'
+        | more_filter: searchTitle:'title'
+        | more_filter: searchGenre:'genre'
+        | more_filter: searchPublisher:'publisher'; let i = index" (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
             <h4>
                 <div text-center>
                     Title: {{isbn[0].title}}
@@ -16,13 +48,14 @@
                     <br> Author: {{isbn[0].author}}
                     <br> Genre: {{isbn[0].genre}}
                     <br> Publisher: {{isbn[0].publisher}}
+                    <br> isbn: {{isbn[0].isbn}}
                 </div>
             </h4>
             <ion-list *ngIf="isLevel1Shown('idx'+i)">
                 <ion-item (click)="clickBook(book)" *ngFor="let book of isbn">
-                    Cost: {{book.price}} <br>
-                    Condition: {{book.condition}} <br>
-                    Description: {{book.additional_info}}
+                    Cost: {{book.price}}
+                    <br> Condition: {{book.condition}}
+                    <br> Description: {{book.additional_info}}
                 </ion-item>
             </ion-list>
         </ion-item>
