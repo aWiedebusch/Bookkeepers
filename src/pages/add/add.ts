@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Storage } from '@ionic/storage'
-
+import { Storage } from '@ionic/storage';
+import { RemoteServiceProvider } from '../../providers/remote-service/remote-service';
+import { ISBNPipe } from '../inventory/pipe';
 
 @Component({
   selector: 'page-add',
@@ -18,8 +19,11 @@ export class AddPage {
   publisher: string = ""
   condition: string = ""
   additional_info: string = ""
+  isbnLookup: any
 
-  constructor(public navCtrl: NavController, private storage: Storage) {
+  constructor(public navCtrl: NavController,
+              private storage: Storage,
+              private remoteService: RemoteServiceProvider) {
 
   }
 
@@ -43,6 +47,25 @@ export class AddPage {
       condition: this.condition,
       additional_info: this.additional_info
     }])
+  }
+
+  checkISBN() {
+
+    this.remoteService.getBook(this.isbn)
+      .subscribe(
+        data => (
+          this.title = data.data[0].title,
+          this.author = data.data[0].author_data[0].name,
+          this.publisher = data.data[0].publisher_name
+        )
+      )
+
+
+    this.populateInputs()
+  }
+
+  populateInputs() {
+    console.log(this.isbnLookup)
   }
 
 }
