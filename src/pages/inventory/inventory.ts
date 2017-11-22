@@ -4,8 +4,6 @@ import { Storage } from '@ionic/storage';
 
 import { BookPage } from '../book/book';
 
-import { ISBNPipe } from './pipe';
-
 @Component({
   selector: 'page-inventory',
   templateUrl: 'inventory.html',

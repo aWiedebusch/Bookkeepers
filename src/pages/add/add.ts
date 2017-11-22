@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Storage } from '@ionic/storage'
-import { InventoryPage } from '../inventory/inventory';
 
+import { Storage } from '@ionic/storage';
+import { RemoteServiceProvider } from '../../providers/remote-service/remote-service';
+import { InventoryPage } from '../inventory/inventory';
 
 
 @Component({
@@ -20,9 +21,13 @@ export class AddPage {
   publisher: string = ""
   condition: string = ""
   additional_info: string = ""
+  isbnLookup: any
 
-  constructor(public navCtrl: NavController, private storage: Storage) 
-  { }
+  constructor(public navCtrl: NavController,
+              private storage: Storage,
+              private remoteService: RemoteServiceProvider) {
+
+  }
 
   add(){
 
@@ -62,5 +67,39 @@ export class AddPage {
       }
     })
     this.navCtrl.setRoot(InventoryPage) 
+  }
+  
+    checkISBN() {
+
+    this.remoteService.getBook(this.isbn)
+      .subscribe(
+        data => {
+          if(data) {
+            if(data.data[0].title){
+              this.title = data.data[0].title
+            }
+            if(data.data[0].author_data[0]) {
+              if(data.data[0].author_data[0].name) {
+                this.author = data.data[0].author_data[0].name;
+              }
+            }
+      
+            if(data.data[0].publisher_name) {
+              this.publisher = data.data[0].publisher_name;
+            }
+          }
+        }
+      )
+
+
+    this.remoteService.getPrice(this.isbn)
+      .subscribe(
+        data => {
+            if(data.data[0]) {
+              if(data.data[0].price)
+                this.price = data.data[0].price
+            }
+        }
+      )
   }
 }

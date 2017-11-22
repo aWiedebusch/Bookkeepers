@@ -4,7 +4,7 @@ import { NavController } from 'ionic-angular';
 import { InventoryPage } from '../inventory/inventory';
 //import { ScanPage } from '../scan/scan';
 import { AddPage } from '../add/add';
-import { BookPage } from '../book/book';
+//import { BookPage } from '../book/book';
 
 @Component({
   selector: 'page-home',
