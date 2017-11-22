@@ -18,6 +18,7 @@ import { DeepPipe } from '../pages/inventory/deep_pipe';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SearchPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
