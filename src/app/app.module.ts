@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
-import { HttpModule, JsonpModule, Jsonp } from '@angular/http';
+import { HttpModule} from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -39,8 +39,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    HttpModule,
-    JsonpModule
+    HttpModule
 
   ],
   bootstrap: [IonicApp],

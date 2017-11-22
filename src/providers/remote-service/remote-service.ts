@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, JsonpModule, Jsonp } from '@angular/http';
+import { Http} from '@angular/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -16,8 +16,7 @@ export class RemoteServiceProvider {
 
   returnable: any
 
-  constructor(public http: Http, private jsonp: Jsonp) {
-    console.log('Hello RemoteServiceProvider Provider');
+  constructor(public http: Http) {
   }
 
   getBook(isbn) {
