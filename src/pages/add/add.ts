@@ -52,19 +52,24 @@ export class AddPage {
 
     this.remoteService.getBook(this.isbn)
       .subscribe(
-        data => (
-          this.title = data.data[0].title,
-          this.author = data.data[0].author_data[0].name,
-          this.publisher = data.data[0].publisher_name
-        )
+        data => {
+          if(data) {
+            if(data.data[0].title){
+              this.title = data.data[0].title
+            }
+            if(data.data[0].author_data[0]) {
+              if(data.data[0].author_data[0].name) {
+                this.author = data.data[0].author_data[0].name;
+              }
+            }
+      
+            if(data.data[0].publisher_name) {
+              this.publisher = data.data[0].publisher_name;
+            }
+          }
+        }
       )
 
-
-    this.populateInputs()
-  }
-
-  populateInputs() {
-    console.log(this.isbnLookup)
   }
 
 }
