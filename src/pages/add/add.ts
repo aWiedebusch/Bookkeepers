@@ -70,6 +70,16 @@ export class AddPage {
         }
       )
 
+
+    this.remoteService.getPrice(this.isbn)
+      .subscribe(
+        data => {
+            if(data.data[0]) {
+              if(data.data[0].price)
+                this.price = data.data[0].price
+            }
+        }
+      )
   }
 
 }

@@ -25,4 +25,10 @@ export class RemoteServiceProvider {
       .map(res => res.json())
 
   }
+
+  getPrice(isbn) {
+    
+    return this.http.get(`http://isbndb.com/api/v2/json/S25GTD6M/prices/${isbn}`)
+      .map(res => res.json())
+  }
 }
