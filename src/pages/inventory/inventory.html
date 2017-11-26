@@ -52,7 +52,7 @@
                 </div>
             </h4>
             <ion-list *ngIf="isLevel1Shown('idx'+i)">
-                <ion-item (click)="clickBook(book)" *ngFor="let book of isbn">
+                <ion-item (click)="clickBook(book, i)" *ngFor="let book of isbn">
                     Cost: {{book.price}}
                     <br> Condition: {{book.condition}}
                     <br> Description: {{book.additional_info}}
