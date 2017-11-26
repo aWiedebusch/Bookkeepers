@@ -13,130 +13,75 @@ export class BookPage {
   book: any;
   index: any;
 
+  isbn: any
+  title: string = ""
+  genre: string = ""
+  author: string = ""
+  price: number = null
+  publisher: string = ""
+  condition: string = ""
+  additional_info: string = ""
+
   constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams) {
-    this.book = navParams.get('Book');
-    this.index = navParams.get('index');
+    var wrapper = navParams.get('Wrapper');
+    this.book = wrapper[0];
+    this.index = wrapper[1];
+
+    this.isbn = String(this.book.isbn),
+    this.title = this.book.title,
+    this.author = this.book.author,
+    this.genre = this.book.genre,
+    this.price = this.book.price,
+    this.publisher = this.book.publisher,
+    this.condition = this.book.condition,
+    this.additional_info = this.book.additional_info
   }
 
-  editBook(element) {
+  // editBook(element) {
+  //   let key = String(this.book.isbn);
+
+  //   this.book.author = prompt('Please enter a new author');
+  //   this.storage.get(key).then(data =>
+  //   {
+  //     // Update existing isbn key here
+  //     data[this.index] = {
+  //       isbn: String(this.book.isbn),
+  //       title: this.book.title,
+  //       author: this.book.author,
+  //       genre: this.book.genre,
+  //       price: this.book.price,
+  //       publisher: this.book.publisher,
+  //       condition: this.book.condition,
+  //       additional_info: this.book.additional_info
+  //     };
+  //     this.storage.set(String(this.book.isbn), data)
+  //   })
+  // }
+
+  writeBook() {
     let key = String(this.book.isbn);
 
-    switch(element) {
-      case 'title':
-        this.book.title = prompt('Please enter a new title');
+    // var book_container = []
+    
+    this.storage.get(key).then(val => {
 
-        this.storage.get(key).then(data =>
-        {
-          // Update existing isbn key here
-          data[this.index] = {
-            isbn: String(this.book.isbn),
-            title: this.book.title,
-            author: this.book.author,
-            genre: this.book.genre,
-            price: this.book.price,
-            publisher: this.book.publisher,
-            condition: this.book.condition,
-            additional_info: this.book.additional_info
-          };
-          this.storage.set(String(this.book.isbn), data)
-        })
-        break;
+      console.log(this.index)
 
-      case 'genre':
-        this.book.genre = prompt('Please enter a new genre');
-        this.storage.get(key).then(data =>
-        {
-          // Update existing isbn key here
-          data[this.index] = {
-            isbn: String(this.book.isbn),
-            title: this.book.title,
-            author: this.book.author,
-            genre: this.book.genre,
-            price: this.book.price,
-            publisher: this.book.publisher,
-            condition: this.book.condition,
-            additional_info: this.book.additional_info
-          };
-          this.storage.set(String(this.book.isbn), data)
-        })
-        break;
-      
-      case 'author':
-        this.book.author = prompt('Please enter a new author');
-        this.storage.get(key).then(data =>
-        {
-          // Update existing isbn key here
-          data[this.index] = {
-            isbn: String(this.book.isbn),
-            title: this.book.title,
-            author: this.book.author,
-            genre: this.book.genre,
-            price: this.book.price,
-            publisher: this.book.publisher,
-            condition: this.book.condition,
-            additional_info: this.book.additional_info
-          };
-          this.storage.set(String(this.book.isbn), data)
-        })
-        break;
+    val[this.index] = {
+      isbn: String(this.isbn),
+      title: this.title,
+      author: this.author,
+      genre: this.genre,
+      price: this.price,
+      publisher: this.publisher,
+      condition: this.condition,
+      additional_info: this.additional_info
+    };
+    
+    console.log(val)
 
-      case 'price':
-        this.book.price = prompt('Please enter a new price');
-        this.storage.get(key).then(data =>
-        {
-          // Update existing isbn key here
-          data[this.index] = {
-            isbn: String(this.book.isbn),
-            title: this.book.title,
-            author: this.book.author,
-            genre: this.book.genre,
-            price: this.book.price,
-            publisher: this.book.publisher,
-            condition: this.book.condition,
-            additional_info: this.book.additional_info
-          };
-          this.storage.set(String(this.book.isbn), data)
-        })
-        break;
-        
-      case 'condition':
-        this.book.condition = prompt('Please enter a new condition');
-        this.storage.get(key).then(data =>
-        {
-          // Update existing isbn key here
-          data[this.index] = {
-            isbn: String(this.book.isbn),
-            title: this.book.title,
-            author: this.book.author,
-            genre: this.book.genre,
-            price: this.book.price,
-            publisher: this.book.publisher,
-            condition: this.book.condition,
-            additional_info: this.book.additional_info
-          };
-          this.storage.set(String(this.book.isbn), data)
-        })
-        break;
-
-      case 'desc':
-        this.book.additional_info = prompt('Please enter a new description');
-        this.storage.get(key).then(data =>
-        {
-          // Update existing isbn key here
-          data[this.index] = {
-            isbn: String(this.book.isbn),
-            title: this.book.title,
-            author: this.book.author,
-            genre: this.book.genre,
-            price: this.book.price,
-            publisher: this.book.publisher,
-            condition: this.book.condition,
-            additional_info: this.book.additional_info
-          };
-          this.storage.set(String(this.book.isbn), data)
-        })
-        break;
-    }
+    this.storage.set(String(this.isbn), val);
+    })
   }
 }
 

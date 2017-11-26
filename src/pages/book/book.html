@@ -14,10 +14,8 @@
                     Title
                 </ion-card-header>
             
-                <ion-item (click)="editBook('title')">
-                    <ion-card-content class="title-text item-text-wrap">
-                        {{book.title}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
                 </ion-item>
             </ion-card>
 
@@ -26,10 +24,8 @@
                     Genre
                 </ion-card-header>
             
-                <ion-item (click)="editBook('genre')">
-                    <ion-card-content class="genre-text item-text-wrap">
-                        {{book.genre}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="genre" placeholder="genre"></ion-input>
                 </ion-item>
             </ion-card>
 
@@ -38,10 +34,8 @@
                     Author
                 </ion-card-header>
             
-                <ion-item (click)="editBook('author')">
-                    <ion-card-content class="author-text item-text-wrap">
-                        {{book.author}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="author" placeholder="author"></ion-input>
                 </ion-item>
                 
             </ion-card>
@@ -51,10 +45,8 @@
                     Price
                 </ion-card-header>
             
-                <ion-item (click)="editBook('price')">
-                    <ion-card-content class="price-text item-text-wrap">
-                        {{book.price}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="price" placeholder="price"></ion-input>
                 </ion-item>
             </ion-card>
 
@@ -63,10 +55,8 @@
                     Publisher
                 </ion-card-header>
             
-                <ion-item (click)="editBook('publisher')">
-                    <ion-card-content class="publisher-text item-text-wrap">
-                        {{book.publisher}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="publisher" placeholder="publisher"></ion-input>
                 </ion-item>
             </ion-card>
 
@@ -75,10 +65,8 @@
                     Condition
                 </ion-card-header>
             
-                <ion-item (click)="editBook('condition')">
-                    <ion-card-content class="condition-text item-text-wrap">
-                        {{book.condition}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="condition" placeholder="condition"></ion-input>
                 </ion-item>
             </ion-card>
 
@@ -87,14 +75,12 @@
                     Description
                 </ion-card-header>
                 
-                <ion-item (click)="editBook('desc')">
-                    <ion-card-content class="description-text item-text-wrap">
-                        {{book.additional_info}}
-                    </ion-card-content>
+                <ion-item>
+                    <ion-input type="text" [(ngModel)]="additional_info" placeholder="Description"></ion-input>
                 </ion-item>
             </ion-card>
 
-            <button ion-button block type="edit-book-button">Edit Book</button>
+            <button (click)="writeBook()" ion-button block type="edit-book-button">Edit Book</button>
         </div>
     </body>
 </ion-content>

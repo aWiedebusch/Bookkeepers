@@ -97,7 +97,7 @@ export class InventoryPage {
   //navParams
   clickBook(book_obj, index) {
     //console.log(book_obj)
-    this.navCtrl.push(BookPage, { Book: book_obj }, index)
+    this.navCtrl.push(BookPage, { Wrapper: [book_obj, index] } )
   }
 
 
