@@ -95,9 +95,9 @@ export class InventoryPage {
 
   //navigates to a book page, sending the entire book object in 
   //navParams
-  clickBook(book_obj) {
+  clickBook(book_obj, index) {
     //console.log(book_obj)
-    this.navCtrl.push(BookPage, { Book: book_obj })
+    this.navCtrl.push(BookPage, { Wrapper: [book_obj, index] } )
   }
 
 
