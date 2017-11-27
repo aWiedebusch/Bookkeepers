@@ -13,7 +13,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BookPage } from '../pages/book/book';
 import { InventoryPage } from '../pages/inventory/inventory';
 import { AddPage } from '../pages/add/add';
-import { SearchPage } from '../pages/search/search';
 
 import { ISBNPipe } from '../pages/inventory/pipe';
 import { DeepPipe } from '../pages/inventory/deep_pipe';
@@ -34,7 +33,6 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     BookPage,
     InventoryPage,
     AddPage,
-    SearchPage,
     ISBNPipe,
     DeepPipe
   ],
@@ -55,8 +53,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     TabsPage,
     BookPage,
     InventoryPage,
-    AddPage,
-    SearchPage
+    AddPage
   ],
   providers: [
     Camera,

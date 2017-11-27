@@ -5,96 +5,86 @@
 </ion-header>
 
 <ion-content padding>
-    <body scrolling="yes">
-        <div class="book-info-page">
-            <h3>Book Info</h3>
 
-            <ion-card>
-                <ion-card-header>
-                    Title
-                </ion-card-header>
-            
-                <ion-item (click)="editBook('title')">
-                    <ion-card-content class="title-text item-text-wrap">
-                        {{book.title}}
-                    </ion-card-content>
-                </ion-item>
-            </ion-card>
+    <div class="bookInfo">
+        <h6> Book Info </h6>
+        <ion-item class="search-item" id="isbn">
+            <ion-input type="text" [(ngModel)]="isbn" placeholder="ISBN number"></ion-input>
+        </ion-item>
 
-            <ion-card>
-                <ion-card-header>
-                    Genre
-                </ion-card-header>
-            
-                <ion-item (click)="editBook('genre')">
-                    <ion-card-content class="genre-text item-text-wrap">
-                        {{book.genre}}
-                    </ion-card-content>
-                </ion-item>
-            </ion-card>
+        <ion-item class="search-item" id="title">
+            <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
+        </ion-item>
 
-            <ion-card>
-                <ion-card-header>
-                    Author
-                </ion-card-header>
-            
-                <ion-item (click)="editBook('author')">
-                    <ion-card-content class="author-text item-text-wrap">
-                        {{book.author}}
-                    </ion-card-content>
-                </ion-item>
-                
-            </ion-card>
-                
-            <ion-card>
-                <ion-card-header>
-                    Price
-                </ion-card-header>
-            
-                <ion-item (click)="editBook('price')">
-                    <ion-card-content class="price-text item-text-wrap">
-                        {{book.price}}
-                    </ion-card-content>
-                </ion-item>
-            </ion-card>
+        <ion-item class="search-item" id="author">
+            <ion-input type="text" [(ngModel)]="author" placeholder="Author"></ion-input>
+        </ion-item>
 
-            <ion-card>
-                <ion-card-header>
-                    Publisher
-                </ion-card-header>
-            
-                <ion-item (click)="editBook('publisher')">
-                    <ion-card-content class="publisher-text item-text-wrap">
-                        {{book.publisher}}
-                    </ion-card-content>
-                </ion-item>
-            </ion-card>
+        <ion-item class="search-item" id="price">
+            <ion-input type="text" [(ngModel)]="price" placeholder="Price"></ion-input>
+        </ion-item>
 
-            <ion-card>
-                <ion-card-header>
-                    Condition
-                </ion-card-header>
-            
-                <ion-item (click)="editBook('condition')">
-                    <ion-card-content class="condition-text item-text-wrap">
-                        {{book.condition}}
-                    </ion-card-content>
-                </ion-item>
-            </ion-card>
+        <ion-item class="search-item" id="publisher">
+            <ion-input type="text" [(ngModel)]="publisher" placeholder="Publisher"></ion-input>
+        </ion-item>
 
-            <ion-card>
-                <ion-card-header>
-                    Description
-                </ion-card-header>
-                
-                <ion-item (click)="editBook('desc')">
-                    <ion-card-content class="description-text item-text-wrap">
-                        {{book.additional_info}}
-                    </ion-card-content>
-                </ion-item>
-            </ion-card>
+        <ion-item class="search-item" >
+            <label class="black" >Genre</label>
+            <ion-select [(ngModel)]="genre">
+                <ion-option value="action">Action/Adventure</ion-option>
+                <ion-option value="anthology">Anthology</ion-option>
+                <ion-option value="art">Art</ion-option>
+                <ion-option value="biography">Biography</ion-option>
+                <ion-option value="childrens">Children's</ion-option>
+                <ion-option value="cookbook">Cookbook</ion-option>
+                <ion-option value="dictionary">Dictionary</ion-option>
+                <ion-option value="drama">Drama</ion-option>
+                <ion-option value="fantasy">Fantasy</ion-option>
+                <ion-option value="health">Health</ion-option>
+                <ion-option value="history">History</ion-option>
+                <ion-option value="horror">Horror</ion-option>
+                <ion-option value="journals">Journals</ion-option>
+                <ion-option value="mystery">Mystery</ion-option>
+                <ion-option value="poetry">Poetry</ion-option>
+                <ion-option value="religion">Religion</ion-option>
+                <ion-option value="romance">Romance</ion-option>
+                <ion-option value="science">Science</ion-option>
+                <ion-option value="scifi">Science Fiction</ion-option>
+                <ion-option value="selfhelp">Self Help</ion-option>
+                <ion-option value="travel">Travel</ion-option>
+                <ion-option value="other">Other</ion-option>
+            </ion-select>
+        </ion-item>
 
-            <button ion-button block type="edit-book-button">Edit Book</button>
+        <h6> Condition </h6>
+        <div class="conditions">
+            <label class="conditionRadio">
+
+                <input type="radio" id="new" [(ngModel)]="condition" value="new" />
+                <label for="new">New/Like New</label>
+                <br>
+                <br>
+                <input type="radio" id="good" [(ngModel)]="condition" value="good" />
+                <label for="good">Good</label>
+                <br>
+                <br>
+                <input type="radio" id="fair" [(ngModel)]="condition" value="fair" />
+                <label for="fair">Fair</label>
+                <br>
+                <br>
+                <input type="radio" id="poor" [(ngModel)]="condition" value="poor" />
+                <label for="poor">Poor</label>
+                <br>
+            </label>
+            <br>
         </div>
-    </body>
+        <br>
+
+        <ion-item class="search-item"  id="addInfo">
+            <ion-textarea [(ngModel)]="additional_info" placeholder="Additional Information"></ion-textarea>
+        </ion-item>
+    </div>
+
+    <button (click)="writeBook()" ion-button block type="edit-book-button">Edit Book</button>
+    <button (click)="sellBook()" ion-button block type="sell-book-button">Sell Book</button>
 </ion-content>

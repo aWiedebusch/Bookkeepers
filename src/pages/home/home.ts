@@ -21,11 +21,11 @@ export class HomePage {
   }
 
   addTapped(event) {
-    this.navCtrl.setRoot(AddPage)
+    this.navCtrl.push(AddPage)
   }
 
   listTapped(event) {
-    this.navCtrl.setRoot(InventoryPage)
+    this.navCtrl.push(InventoryPage)
   }
 
 }

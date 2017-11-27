@@ -6,33 +6,33 @@
 
 <ion-content padding>
     <div class="form-group">
-        <div class="col-md-6">
-            <input type="text" [(ngModel)]="searchISBN" class="form-control" placeholder="Search By ISBN" />
-        </div>
+        <ion-item class="col-md-6 search-item">
+            <ion-input type="text" [(ngModel)]="searchISBN" class="form-control" placeholder="Search By ISBN"></ion-input>
+        </ion-item>
     </div>
     <div class="form-group">
-        <div class="col-md-6">
-            <input type="text" [(ngModel)]="searchAuthor" class="form-control" placeholder="Search By Author" />
-        </div>
+        <ion-item class="col-md-6 search-item">
+            <ion-input type="text" [(ngModel)]="searchAuthor" class="form-control" placeholder="Search By Author"></ion-input>
+        </ion-item>
     </div>
     <div class="form-group">
-        <div class="col-md-6">
-            <input type="text" [(ngModel)]="searchTitle" class="form-control" placeholder="Search By Title" />
-        </div>
+        <ion-item class="col-md-6 search-item">
+            <ion-input type="text" [(ngModel)]="searchTitle" class="form-control" placeholder="Search By Title"></ion-input>
+        </ion-item>
     </div>
     <div class="form-group">
-        <div class="col-md-6">
-            <input type="text" [(ngModel)]="searchGenre" class="form-control" placeholder="Search By Genre" />
-        </div>
+        <ion-item class="col-md-6 search-item">
+            <ion-input type="text" [(ngModel)]="searchGenre" class="form-control" placeholder="Search By Genre"></ion-input>
+        </ion-item>
     </div>
     <div class="form-group">
-        <div class="col-md-6">
-            <input type="text" [(ngModel)]="searchPublisher" class="form-control" placeholder="Search By Publisher" />
-        </div>
+        <ion-item class="col-md-6 search-item">
+            <ion-input type="text" [(ngModel)]="searchPublisher" class="form-control" placeholder="Search By Publisher"></ion-input>
+        </ion-item><br>
     </div>
 
     <ion-list>
-        <ion-item *ngFor="let isbn of 
+        <ion-item class="search-item" *ngFor="let isbn of 
         (all_books 
         | filter: searchISBN) 
         | more_filter: searchAuthor:'author'
@@ -41,7 +41,7 @@
         | more_filter: searchPublisher:'publisher'; let i = index" (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
             <h4>
                 <div text-center>
-                    Title: {{isbn[0].title}}
+                    Title: {{[isbn[0].title]}}
                     <div float-right>
                         {{isbn.length}}
                     </div>
@@ -52,7 +52,7 @@
                 </div>
             </h4>
             <ion-list *ngIf="isLevel1Shown('idx'+i)">
-                <ion-item (click)="clickBook(book)" *ngFor="let book of isbn">
+                <ion-item class="search-item bottom-border" *ngFor="let book of isbn; let i2 = index" (click)="clickBook(book, i2)">
                     Cost: {{book.price}}
                     <br> Condition: {{book.condition}}
                     <br> Description: {{book.additional_info}}

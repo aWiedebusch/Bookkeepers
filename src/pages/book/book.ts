@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { Storage } from '@ionic/storage';
+import { InventoryPage } from '../inventory/inventory';
+
 @Component({
   selector: 'page-book',
   templateUrl: 'book.html'
@@ -9,41 +12,70 @@ import { NavController, NavParams } from 'ionic-angular';
 export class BookPage {
 
   book: any;
+  index: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.book = navParams.get('Book');
+  isbn: any
+  title: string = ""
+  genre: string = ""
+  author: string = ""
+  price: number = null
+  publisher: string = ""
+  condition: string = ""
+  additional_info: string = ""
+
+  constructor(public navCtrl: NavController, private storage: Storage, public navParams: NavParams) {
+    var wrapper = navParams.get('Wrapper');
+    this.book = wrapper[0];
+    this.index = wrapper[1];
+
+    this.isbn = String(this.book.isbn),
+    this.title = this.book.title,
+    this.author = this.book.author,
+    this.genre = this.book.genre,
+    this.price = this.book.price,
+    this.publisher = this.book.publisher,
+    this.condition = this.book.condition,
+    this.additional_info = this.book.additional_info
   }
 
-  editBook(element) {
-    switch(element) {
-      case 'title':
-        this.book.title = prompt('Please enter a new title');
-        break;
+  writeBook() {
+    let key = String(this.book.isbn);
+    
+    this.storage.get(key).then(val => {
 
-      case 'genre':
-        this.book.genre = prompt('Please enter a new genre');
-        break;
-      
-      case 'author':
-        this.book.author = prompt('Please enter a new author');
-        break;
+    val[this.index] = {
+      isbn: String(this.isbn),
+      title: this.title,
+      author: this.author,
+      genre: this.genre,
+      price: this.price,
+      publisher: this.publisher,
+      condition: this.condition,
+      additional_info: this.additional_info
+    };
+    
 
-      case 'price':
-        this.book.price = prompt('Please enter a new price');
-        break;
-      
-      case 'publisher':
-        this.book.publisher = prompt('Please enter a new publisher');
-        break;
-        
-      case 'condition':
-        this.book.condition = prompt('Please enter a new condition');
-        break;
+    this.storage.set(String(this.isbn), val);
+    })
 
-      case 'desc':
-        this.book.additional_info = prompt('Please enter a new description');
-        break;
+    this.navCtrl.push(InventoryPage)
+  }
+
+  sellBook() {
+    let key = String(this.book.isbn);
+    
+    this.storage.get(key).then(val => {
+
+    if(val.length == 1) {
+      this.storage.remove(this.isbn)
     }
+    else {
+      val.pop(this.index)
+      this.storage.set(String(this.isbn), val);
+    }
+    })
+
+    this.navCtrl.push(InventoryPage)
   }
 }
 
