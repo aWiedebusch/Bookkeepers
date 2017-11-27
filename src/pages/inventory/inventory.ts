@@ -113,45 +113,4 @@ export class InventoryPage {
   isLevel1Shown(idx) {
     return this.showLevel1 === idx;
   };
-  
-
-  // filterGenre(books, genre) {
-  //   if(this.searchGenre == null) return books;
-
-  //   return books.filter(function(book){
-  //     return book[0].genre.toLowerCase().indexOf(genre.toLowerCase()) > -1;
-  //   })
-  // }
-
-  // filterISBN(books, isbn) {
-  //   if(this.searchISBN == null) return books;
-
-  //   return books.filter(function(book){
-  //     return book.isbn.toLowerCase().indexOf(isbn.toLowerCase()) > -1;
-  //   })
-  // }
-
-  // filterAuthor(books, author) {
-  //   if(this.searchAuthor == null) return books;
-  
-  //   return books.filter(function(book){
-  //     return book[0].author.toLowerCase().indexOf(author.toLowerCase()) > -1;
-  //   })
-  // }
-
-  // filterTitle(books, title) {
-  //   if(this.searchTitle == null) return books;
-  
-  //   return books.filter(function(book){
-  //     return book[0].title.toLowerCase().indexOf(title.toLowerCase()) > -1;
-  //   })
-  // }
-
-  // filterPublisher(books, publisher) {
-  //   if(this.searchPublisher == null) return books;
-  
-  //   return books.filter(function(book){
-  //     return book[0].publisher.toLowerCase().indexOf(publisher.toLowerCase()) > -1;
-  //   })
-  // }
 }
