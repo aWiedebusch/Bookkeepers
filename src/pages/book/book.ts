@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
+import { InventoryPage } from '../inventory/inventory';
 
 @Component({
   selector: 'page-book',
@@ -37,35 +38,10 @@ export class BookPage {
     this.additional_info = this.book.additional_info
   }
 
-  // editBook(element) {
-  //   let key = String(this.book.isbn);
-
-  //   this.book.author = prompt('Please enter a new author');
-  //   this.storage.get(key).then(data =>
-  //   {
-  //     // Update existing isbn key here
-  //     data[this.index] = {
-  //       isbn: String(this.book.isbn),
-  //       title: this.book.title,
-  //       author: this.book.author,
-  //       genre: this.book.genre,
-  //       price: this.book.price,
-  //       publisher: this.book.publisher,
-  //       condition: this.book.condition,
-  //       additional_info: this.book.additional_info
-  //     };
-  //     this.storage.set(String(this.book.isbn), data)
-  //   })
-  // }
-
   writeBook() {
     let key = String(this.book.isbn);
-
-    // var book_container = []
     
     this.storage.get(key).then(val => {
-
-      console.log(this.index)
 
     val[this.index] = {
       isbn: String(this.isbn),
@@ -78,10 +54,28 @@ export class BookPage {
       additional_info: this.additional_info
     };
     
-    console.log(val)
 
     this.storage.set(String(this.isbn), val);
     })
+
+    this.navCtrl.push(InventoryPage)
+  }
+
+  sellBook() {
+    let key = String(this.book.isbn);
+    
+    this.storage.get(key).then(val => {
+
+    if(val.length == 1) {
+      this.storage.remove(this.isbn)
+    }
+    else {
+      val.pop(this.index)
+      this.storage.set(String(this.isbn), val);
+    }
+    })
+
+    this.navCtrl.push(InventoryPage)
   }
 }
 

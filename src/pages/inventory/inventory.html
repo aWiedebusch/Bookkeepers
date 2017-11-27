@@ -41,7 +41,7 @@
         | more_filter: searchPublisher:'publisher'; let i = index" (click)="toggleLevel1('idx'+i)" [ngClass]="{active: isLevel1Shown('idx'+i)}">
             <h4>
                 <div text-center>
-                    Title: {{isbn[0].title}}
+                    Title: {{[isbn[0].title]}}
                     <div float-right>
                         {{isbn.length}}
                     </div>
