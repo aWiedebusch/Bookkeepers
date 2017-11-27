@@ -5,18 +5,16 @@
 </ion-header>
 
 <ion-content padding>
+
     <div class = "bookInfo">
         <h6> Book Info </h6>
         <ion-item id="isbn">
             <ion-input type="text" [(ngModel)]="isbn" placeholder="ISBN number"></ion-input>
         </ion-item>
+        <button ion-button (click)="checkISBN()">Check ISBN</button>
 
         <ion-item id="title">
             <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
-        </ion-item>
-
-        <ion-item id="genre">
-            <ion-input type="text" [(ngModel)]="genre" placeholder="Genre"></ion-input>
         </ion-item>
 
         <ion-item id="author">
@@ -31,18 +29,49 @@
             <ion-input type="text" [(ngModel)]="publisher" placeholder="Publisher"></ion-input>
         </ion-item>
         
+        <!-- <ion-item id="genre">
+            <ion-input type="text" [(ngModel)]="genre" placeholder="Genre"></ion-input>
+        </ion-item> -->
+
+        <ion-item>
+            <ion-label>Genre</ion-label>
+            <ion-select [(ngModel)]="genre">
+              <ion-option value="action">Action/Adventure</ion-option>
+              <ion-option value="anthology">Anthology</ion-option>
+              <ion-option value="art">Art</ion-option>
+              <ion-option value="biography">Biography</ion-option>
+              <ion-option value="childrens">Children's</ion-option>
+              <ion-option value="cookbook">Cookbook</ion-option>
+              <ion-option value="dictionary">Dictionary</ion-option>
+              <ion-option value="drama">Drama</ion-option>
+              <ion-option value="fantasy">Fantasy</ion-option>
+              <ion-option value="health">Health</ion-option>
+              <ion-option value="history">History</ion-option>
+              <ion-option value="horror">Horror</ion-option>
+              <ion-option value="journals">Journals</ion-option>
+              <ion-option value="mystery">Mystery</ion-option>
+              <ion-option value="poetry">Poetry</ion-option>
+              <ion-option value="religion">Religion</ion-option>
+              <ion-option value="romance">Romance</ion-option>
+              <ion-option value="science">Science</ion-option>
+              <ion-option value="scifi">Science Fiction</ion-option>
+              <ion-option value="selfhelp">Self Help</ion-option>
+              <ion-option value="travel">Travel</ion-option>
+            </ion-select>
+          </ion-item>
 
         <h6> Condition </h6>
         <div class = "conditions">
             <label class = "conditionRadio">
-                    <input type = "radio" name = "condition" [(ngModel)] = "condition" value = "new"/>
-                    New/Like New <br><br>
-                    <input type = "radio" name = "condition" [(ngModel)] = "condition" value = "good"/>
-                    Good<br><br>
-                    <input type = "radio" name = "condition" [(ngModel)] = "condition" value = "fair"/>
-                    Fair<br><br>
-                    <input type = "radio" name = "condition" [(ngModel)] = "condition" value = "poor"/>
-                    Poor<br>
+                
+                    <input type = "radio" id = "new" [(ngModel)] = "condition" value = "new"/>
+                    <label for="new">New/Like New</label><br><br>
+                    <input type = "radio" id = "good" [(ngModel)] = "condition" value = "good"/>
+                    <label for="good">Good</label><br><br>
+                    <input type = "radio" id = "fair" [(ngModel)] = "condition" value = "fair"/>
+                    <label for="fair">Fair</label><br><br>
+                    <input type = "radio" id = "poor" [(ngModel)] = "condition" value = "poor"/>
+                    <label for="poor">Poor</label><br>
             </label><br>
         </div><br>
     
