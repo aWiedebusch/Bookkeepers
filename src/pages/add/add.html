@@ -8,28 +8,28 @@
 
     <div class = "bookInfo">
         <h6> Book Info </h6>
-        <ion-item id="isbn">
+        <ion-item class="search-item"  id="isbn">
             <ion-input type="text" [(ngModel)]="isbn" placeholder="ISBN number"></ion-input>
         </ion-item>
         <button ion-button (click)="checkISBN()">Check ISBN</button>
 
-        <ion-item id="title">
+        <ion-item class="search-item" id="title">
             <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
         </ion-item>
 
-        <ion-item id="author">
+        <ion-item class="search-item" id="author">
             <ion-input type="text" [(ngModel)]="author" placeholder="Author"></ion-input>
         </ion-item>
 
-        <ion-item id="price">
+        <ion-item class="search-item" id="price">
             <ion-input type="text" [(ngModel)]="price" placeholder="Price"></ion-input>
         </ion-item>
 
-        <ion-item id="publisher">
+        <ion-item class="search-item" id="publisher">
             <ion-input type="text" [(ngModel)]="publisher" placeholder="Publisher"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="search-item" >
             <ion-label>Genre</ion-label>
             <ion-select [(ngModel)]="genre">
               <ion-option value="action">Action/Adventure</ion-option>
@@ -72,7 +72,7 @@
             </label><br>
         </div><br>
     
-        <ion-item id="addInfo">
+        <ion-item class="search-item"  id="addInfo">
                 <ion-textarea [(ngModel)]="additional_info" placeholder="Additional Information"></ion-textarea>
         </ion-item>
         

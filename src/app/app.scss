@@ -17,5 +17,10 @@
 
 
 .fixed-content {
-    background-color: rgb(219, 120, 78);
+    // background-color: rgb(219, 120, 78);
+    background-color: #D5D5D5;
 }
+ 
+ ::placeholder { /* Most modern browsers support this now. */
+    color: rgba(0, 0, 0, 0.507) !important;
+ }
