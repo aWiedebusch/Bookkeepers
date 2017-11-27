@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { InventoryPage } from '../inventory/inventory';
-//import { ScanPage } from '../scan/scan';
+import { CameraPage } from '../camera/camera';
 import { AddPage } from '../add/add';
 //import { BookPage } from '../book/book';
 
@@ -16,8 +16,8 @@ export class HomePage {
 
   }
 
-  scannedTapped(event) {
-    //this.navCtrl.setRoot(ScanPage)
+  scanTapped(event) {
+    this.navCtrl.setRoot(CameraPage)
   }
 
   addTapped(event) {

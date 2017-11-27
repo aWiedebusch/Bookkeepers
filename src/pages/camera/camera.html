@@ -14,5 +14,18 @@
 
 
 <ion-content padding>
-
+  <ion-card>
+    <ion-card-content>
+      <div>
+          Hello World, this is my camera app
+          
+          <button ion-button (click)="takePic()">Take a Picture</button>
+      </div>
+      
+      <div>
+        Latest Picture: <br>
+        <img [src]="base64Image" *ngIf="base64Image"/>
+      </div>
+    </ion-card-content>
+  </ion-card>  
 </ion-content>

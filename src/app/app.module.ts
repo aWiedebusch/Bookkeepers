@@ -6,6 +6,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule} from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
+import { CameraPage } from '../pages/camera/camera';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -26,6 +27,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
   declarations: [
     MyApp,
     AboutPage,
+    CameraPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -47,6 +49,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
   entryComponents: [
     MyApp,
     AboutPage,
+    CameraPage,
     ContactPage,
     HomePage,
     TabsPage,
