@@ -172,8 +172,7 @@ export class AddPage {
           else if(String(this.isbn).length != 13){
             let alert = this.alertCtrl.create({
               title: 'ISBN Error',
-              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number ' +
-                        String(typeof(this.isbn)),
+              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number',
               buttons: ['Dismiss']
             });
             alert.present();
