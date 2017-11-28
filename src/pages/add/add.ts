@@ -29,7 +29,7 @@ export class AddPage {
 
   }
   add(){
-    if(this.isbn == null) {
+    if(this.isbn == null || String(this.isbn).length !== 13) {
       let alert = this.alertCtrl.create({
         title: 'Error:',
         subTitle: 'Please enter a valid ISBN number',
@@ -108,8 +108,7 @@ export class AddPage {
         }
 
         // If isbn number doesn't exist already in inventory, add it
-        else
-        {
+        else {
           this.storage.set(String(this.isbn), [{
             isbn: String(this.isbn),
             title: this.title,
@@ -128,33 +127,72 @@ export class AddPage {
     }
   }
   
-    checkISBN() {
+  checkISBN() {
 
     this.remoteService.getBook(this.isbn)
       .subscribe(
         data => {
-          if(data) {
-            if(data.data[0].title){
-              this.title = data.data[0].title
+
+          // If ISBN is found in online database, check if it's a valid book
+          if(data && String(this.isbn).length == 13) {
+            if(data.error) {
+              let alert = this.alertCtrl.create({
+                title: 'ISBN Error',
+                subTitle: 'We are unable to find data on this ISBN number. ' +
+                          'Please enter book information manually',
+                buttons: ['Dismiss']
+              });
+              alert.present();
             }
-            if(data.data[0].author_data[0]) {
-              if(data.data[0].author_data[0].name) {
-                this.author = data.data[0].author_data[0].name;
+
+            // If ISBN is a valid book, auto-fill book information
+            else {
+              if(data.data[0].title){
+                this.title = data.data[0].title
+              }
+              if(data.data[0].author_data[0]) {
+                if(data.data[0].author_data[0].name) {
+                  this.author = data.data[0].author_data[0].name;
+                }
+              }
+              if(data.data[0].publisher_name) {
+                this.publisher = data.data[0].publisher_name;
+              }
+              if(data.data[0]) {
+                if(data.data[0].price)
+                  this.price = data.data[0].price
               }
             }
-      
-            if(data.data[0].publisher_name) {
-              this.publisher = data.data[0].publisher_name;
-            }
+          }
+
+          // If ISBN is not valid, alert user to try again
+          else if(String(this.isbn).length != 13){
+            let alert = this.alertCtrl.create({
+              title: 'ISBN Error',
+              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number',
+              buttons: ['Dismiss']
+            });
+            alert.present();
+          }
+
+          // If ISBN is not found, alert user to enter data manually
+          else {
+            let alert = this.alertCtrl.create({
+              title: 'ISBN Error',
+              subTitle: 'We are unable to find data on this ISBN number. ' +
+                        'Please enter book information manually',
+              buttons: ['Dismiss']
+            });
+            alert.present();
           }
         }
       )
 
-
+    // Get price of book from price endpoint
     this.remoteService.getPrice(this.isbn)
       .subscribe(
         data => {
-            if(data.data[0]) {
+            if(data.data[0] && data && String(this.isbn).length == 13 && !data.error) {
               if(data.data[0].price)
                 this.price = data.data[0].price
             }
