@@ -12,6 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BookPage } from '../pages/book/book';
 import { InventoryPage } from '../pages/inventory/inventory';
 import { AddPage } from '../pages/add/add';
+import { HistoryPage } from '../pages/history/history';
+
 
 import { ISBNPipe } from '../pages/inventory/pipe';
 import { DeepPipe } from '../pages/inventory/deep_pipe';
@@ -30,6 +32,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     BookPage,
     InventoryPage,
     AddPage,
+    HistoryPage,
     ISBNPipe,
     DeepPipe
   ],
@@ -49,7 +52,8 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     TabsPage,
     BookPage,
     InventoryPage,
-    AddPage
+    AddPage,
+    HistoryPage
   ],
   providers: [
     StatusBar,
