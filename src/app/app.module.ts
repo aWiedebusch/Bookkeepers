@@ -6,6 +6,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule} from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
+import { CameraPage } from '../pages/camera/camera';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -20,12 +21,14 @@ import { DeepPipe } from '../pages/inventory/deep_pipe';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
 import { RemoteServiceProvider } from '../providers/remote-service/remote-service';
 
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
+    CameraPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -47,6 +50,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
   entryComponents: [
     MyApp,
     AboutPage,
+    CameraPage,
     ContactPage,
     HomePage,
     TabsPage,
@@ -56,6 +60,7 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     HistoryPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
