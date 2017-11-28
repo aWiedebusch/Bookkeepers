@@ -195,7 +195,8 @@ export class AddPage {
     this.remoteService.getPrice(this.isbn)
       .subscribe(
         data => {
-          if(!(data.error) && data.data[0] && data && String(this.isbn).length == 13) {
+          if(!(data.error) && data.data[0] && data 
+            && String(this.isbn).length == 13 && typeof(this.isbn) == 'number') {
               if(data.data[0].price)
                 this.price = data.data[0].price
           }
