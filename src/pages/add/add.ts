@@ -5,6 +5,7 @@ import { RemoteServiceProvider } from '../../providers/remote-service/remote-ser
 import { InventoryPage } from '../inventory/inventory';
 
 
+
 @Component({
   selector: 'page-add',
   templateUrl: 'add.html'
@@ -132,12 +133,14 @@ export class AddPage {
   
   checkISBN() {
 
+    var re = new RegExp('[0-9]{13}')
+
     this.remoteService.getBook(this.isbn)
       .subscribe(
         data => {
 
           // If ISBN is found in online database, check if it's a valid book
-          if(data && String(this.isbn).length == 13) {
+          if(data && String(this.isbn).length == 13 && String(this.isbn).match(re)) {
             if(data.error) {
               let alert = this.alertCtrl.create({
                 title: 'ISBN Error',
@@ -169,11 +172,10 @@ export class AddPage {
           }
 
           // If ISBN is not valid, alert user to try again
-          else if(String(this.isbn).length != 13){
+          else if(String(this.isbn).length != 13 || String(this.isbn).match(re) == null){
             let alert = this.alertCtrl.create({
               title: 'ISBN Error',
-              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number ' +
-                        String(typeof(this.isbn)),
+              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number',
               buttons: ['Dismiss']
             });
             alert.present();
@@ -196,7 +198,8 @@ export class AddPage {
     this.remoteService.getPrice(this.isbn)
       .subscribe(
         data => {
-          if(!(data.error) && data.data[0] && data && String(this.isbn).length == 13) {
+          if(!(data.error) && data.data[0] && data 
+            && String(this.isbn).length == 13 && String(this.isbn).match(re)) {
               if(data.data[0].price)
                 this.price = data.data[0].price
           }
