@@ -17,14 +17,14 @@
   <ion-card>
     <ion-card-content>
       <div>
-          Hello World, this is my camera app
+          Camera Test
           
           <button ion-button (click)="takePic()">Take a Picture</button>
       </div>
       
       <div>
         Latest Picture: <br>
-        <img [src]="base64Image" *ngIf="base64Image"/>
+        <img [src]="photo" *ngIf="photo"/>
       </div>
     </ion-card-content>
   </ion-card>  

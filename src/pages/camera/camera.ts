@@ -18,8 +18,13 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class CameraPage {
 
   public base64Image: string;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) { }
+  public photos: any = [];
+  
+  constructor(public navCtrl: NavController,
+      public navParams: NavParams,
+      private camera: Camera) {
+  
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CameraPage');
@@ -28,6 +33,7 @@ export class CameraPage {
   
 
   takePic() {
+    
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -36,12 +42,21 @@ export class CameraPage {
     }
 
     this.camera.getPicture(options).then((imageData) => {
-      // imageData is a base64 encoded string
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-    }, (err) => {
-        console.log(err);
+
+      //add photo to the array of photos
+      this.base64Image = "data:image/jpeg;base64," + imageData;
+      this.addPhoto(this.base64Image);
+
+    }, (error) => {
+      console.debug("Unable to obtain picture: " + error, "app");
+      console.log(error);
     });
   }
+
+  addPhoto(photo) {
+    this.photos.push(photo);
+    this.photos.reverse();
+}
   
 }
 
