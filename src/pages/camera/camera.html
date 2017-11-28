@@ -7,25 +7,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>camera</ion-title>
+    <ion-title>Bookkeepers</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      <div>
-          Camera Test
-          
-          <button ion-button (click)="takePic()">Take a Picture</button>
-      </div>
-      
-      <div>
-        Latest Picture: <br>
-        <img [src]="photo" *ngIf="photo"/>
-      </div>
-    </ion-card-content>
-  </ion-card>  
+  <div class="container brown">
+    <div class="camera-menu">
+      <button ion-button (click)="takePic()" class="camera-button">Scan Book</button>
+    </div>
+  </div>
 </ion-content>

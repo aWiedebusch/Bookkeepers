@@ -56,7 +56,7 @@ export class CameraPage {
   addPhoto(photo) {
     this.photos.push(photo);
     this.photos.reverse();
-}
+  }
   
 }
 
