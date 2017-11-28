@@ -137,7 +137,7 @@ export class AddPage {
         data => {
 
           // If ISBN is found in online database, check if it's a valid book
-          if(data && String(this.isbn).length == 13 && typeof(this.isbn) == 'number') {
+          if(data && String(this.isbn).length == 13) {
             if(data.error) {
               let alert = this.alertCtrl.create({
                 title: 'ISBN Error',
@@ -169,10 +169,11 @@ export class AddPage {
           }
 
           // If ISBN is not valid, alert user to try again
-          else if(String(this.isbn).length != 13 || typeof(this.isbn) != 'number'){
+          else if(String(this.isbn).length != 13){
             let alert = this.alertCtrl.create({
               title: 'ISBN Error',
-              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number',
+              subTitle: 'Invalid ISBN number. Please enter a 13-digit ISBN number ' +
+                        String(typeof(this.isbn)),
               buttons: ['Dismiss']
             });
             alert.present();
@@ -195,8 +196,7 @@ export class AddPage {
     this.remoteService.getPrice(this.isbn)
       .subscribe(
         data => {
-          if(!(data.error) && data.data[0] && data 
-            && String(this.isbn).length == 13 && typeof(this.isbn) == 'number') {
+          if(!(data.error) && data.data[0] && data && String(this.isbn).length == 13) {
               if(data.data[0].price)
                 this.price = data.data[0].price
           }
