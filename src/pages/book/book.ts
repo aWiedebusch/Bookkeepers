@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
 import { InventoryPage } from '../inventory/inventory';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-book',
@@ -38,6 +39,9 @@ export class BookPage {
     this.additional_info = this.book.additional_info
   }
 
+  ngOnInit() {
+  }
+
   writeBook() {
     let key = String(this.book.isbn);
     
@@ -58,11 +62,21 @@ export class BookPage {
     this.storage.set(String(this.isbn), val);
     })
 
-    this.navCtrl.push(InventoryPage)
+    this.navAway()
   }
 
   sellBook() {
     let key = String(this.book.isbn);
+
+    // this.storage.get("History").then(val => {
+    //   console.log(val)
+    //   this.storage.set("History", val.push({
+    //     isbn: this.isbn,
+    //     price: this.price,
+    //     title: this.title
+    //   }))
+    //   // this.storage.get("History").then(val => console.log(val))
+    // })
     
     this.storage.get(key).then(val => {
 
@@ -74,8 +88,12 @@ export class BookPage {
       this.storage.set(String(this.isbn), val);
     }
     })
+    this.navAway()
+  }
 
-    this.navCtrl.push(InventoryPage)
+  navAway() {
+    this.navCtrl.resize()
+    this.navCtrl.setRoot(InventoryPage)
   }
 }
 
