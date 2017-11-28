@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { InventoryPage } from '../inventory/inventory';
 import { CameraPage } from '../camera/camera';
+import { HistoryPage } from '../history/history';
 import { AddPage } from '../add/add';
 //import { BookPage } from '../book/book';
 
@@ -18,6 +19,10 @@ export class HomePage {
 
   scanTapped(event) {
     this.navCtrl.setRoot(CameraPage)
+  }
+
+  historyTapped(event) {
+    this.navCtrl.push(HistoryPage)
   }
 
   addTapped(event) {

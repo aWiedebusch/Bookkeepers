@@ -22,10 +22,15 @@ export class InventoryPage {
 //Things to run when page is loaded
   ngOnInit() {
     //this.storage.clear()
-    //this.testStore()
+     //this.testStore()
+    //this.initHistory()
 
     //gets the books out of the promise wrapper
     this.getBooks().then((val) => this.all_books = val)
+  }
+
+  initHistory() {
+    this.storage.set("History", []);
   }
 
   //run this once in ngOnInit to set test book values
@@ -87,16 +92,21 @@ export class InventoryPage {
 
     //gets each book object
     for (let book of index) {
-      this.storage.get(book).then((val) => books.push(val))
+      if( book != "History"){
+        this.storage.get(book).then((val) => 
+        {
+          if( val != null) {
+            books.push(val)
+          }
+        })
+      }
     }
-    //console.log(books)
     return books
   }
 
   //navigates to a book page, sending the entire book object in 
   //navParams
   clickBook(book_obj, index) {
-    //console.log(book_obj)
     this.navCtrl.push(BookPage, { Wrapper: [book_obj, index] } )
   }
 

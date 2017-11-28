@@ -11,7 +11,7 @@
         <ion-item class="search-item"  id="isbn">
             <ion-input type="text" [(ngModel)]="isbn" placeholder="ISBN number"></ion-input>
         </ion-item>
-        <button ion-button (click)="checkISBN()">Check ISBN</button>
+        <button class="color-button" ion-button (click)="checkISBN()">Check ISBN</button>
 
         <ion-item class="search-item" id="title">
             <ion-input type="text" [(ngModel)]="title" placeholder="Title"></ion-input>
@@ -30,7 +30,7 @@
         </ion-item>
 
         <ion-item class="search-item" >
-            <ion-label>Genre</ion-label>
+            <ion-label id="genre-label">Genre</ion-label>
             <ion-select [(ngModel)]="genre">
               <ion-option value="action">Action/Adventure</ion-option>
               <ion-option value="anthology">Anthology</ion-option>
@@ -77,7 +77,7 @@
         </ion-item>
         
         <div>
-            <button ion-button (click)="add()"> Add Book </button>
+            <button class="color-button" ion-button (click)="add()"> Add Book </button>
         </div>
     </div>
 </ion-content>
