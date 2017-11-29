@@ -6,5 +6,16 @@
 
 
 <ion-content padding>
+    <h1>All Sales</h1>
+    <ion-list>
+        <div *ngFor="let container of history">
+            <ion-item no-lines class="search-item separate" *ngFor="let book of (container | reverse); let i = index">
+                ISBN: {{book.isbn}}
+                <br> Title: {{book.title}}
+                <br> Price: {{book.price}}
+                <br>
+            </ion-item>
+        </div>
+    </ion-list>
 
 </ion-content>

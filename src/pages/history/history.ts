@@ -11,6 +11,7 @@ export class HistoryPage {
     history: any
 
   constructor(public navCtrl: NavController, private storage: Storage) {
+    this.history = []
   }
 
   ngOnInit() {
@@ -19,14 +20,10 @@ export class HistoryPage {
 
     getSales() {
 
-    // console.log(this.storage.get("History"))
-
     this.storage.get("History").then((val) =>
     { 
-        this.history = val
-        console.log(val)
+        this.history.push(val)
     })
-    console.log(this.history)
   }
 
 }

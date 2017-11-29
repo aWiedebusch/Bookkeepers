@@ -6,8 +6,6 @@ export class DeepPipe implements PipeTransform {
     transform(categories: any, searchText: any, target: any): any {
         if (searchText == null || searchText == "") return categories;
 
-        console.log(target)
-
         return categories.filter(function (category) {
             switch (target) {
                 case "author": {
