@@ -18,6 +18,7 @@ import { HistoryPage } from '../pages/history/history';
 
 import { ISBNPipe } from '../pages/inventory/pipe';
 import { DeepPipe } from '../pages/inventory/deep_pipe';
+import { ReversePipe } from '../pages/history/reverse_pipe';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -37,7 +38,8 @@ import { RemoteServiceProvider } from '../providers/remote-service/remote-servic
     AddPage,
     HistoryPage,
     ISBNPipe,
-    DeepPipe
+    DeepPipe,
+    ReversePipe
   ],
   imports: [
     BrowserModule,

@@ -68,15 +68,16 @@ export class BookPage {
   sellBook() {
     let key = String(this.book.isbn);
 
-    // this.storage.get("History").then(val => {
-    //   console.log(val)
-    //   this.storage.set("History", val.push({
-    //     isbn: this.isbn,
-    //     price: this.price,
-    //     title: this.title
-    //   }))
-    //   // this.storage.get("History").then(val => console.log(val))
-    // })
+    this.storage.get("History").then(val => {
+
+      val.push({
+        isbn: this.isbn,
+        price: this.price,
+        title: this.title
+      })
+
+      this.storage.set("History", val)
+    })
     
     this.storage.get(key).then(val => {
 
