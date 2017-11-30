@@ -69,14 +69,30 @@ export class BookPage {
     let key = String(this.book.isbn);
 
     this.storage.get("History").then(val => {
+      if(val == null)
+        this.storage.set("History", [])
+    })
 
-      val.push({
-        isbn: this.isbn,
-        price: this.price,
-        title: this.title
-      })
+    this.storage.get("History").then(val => {
 
-      this.storage.set("History", val)
+      if(val == null){
+        val = []
+        val.push({
+          isbn: this.isbn,
+          price: this.price,
+          title: this.title
+        })
+        this.storage.set("History", val)
+      }
+      else{
+        val.push({
+          isbn: this.isbn,
+          price: this.price,
+          title: this.title
+        })
+        this.storage.set("History", val)
+      }
+
     })
     
     this.storage.get(key).then(val => {
